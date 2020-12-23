@@ -3,4 +3,10 @@
   <groupId>nl.schellekens.marrit.exercise_planner</groupId>
   <artifactId>exercise_planner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+   <maven.compiler.source>1.6</maven.compiler.source>
+   <maven.compiler.target>1.6</maven.compiler.target>
+ </properties>
+  
+  
 </project>
