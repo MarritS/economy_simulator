@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class TempTest {
 
 	@Test
-	void test() {
+	void AbcTest() {
 		Temp temp = new Temp(); 
 		
 		int result = temp.sum(5, 4);
