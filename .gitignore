@@ -6,3 +6,4 @@
 target/exercise_planner-0.0.1-SNAPSHOT.jar
 target/maven-archiver/pom.properties
 *.lst
+/target/
