@@ -7,12 +7,16 @@ import Producer.Producer;
 import Producer.ProducerProfile;
 import consumer.Consumer;
 import consumer.ConsumerProfile;
+import economy_simulator.Market;
 import goods.GoodFactory;
 
 public class defaultPopulationInitializer extends PopulationInitializer {
 	
-	public defaultPopulationInitializer(int numPeople) {
+	Market market; 
+	
+	public defaultPopulationInitializer(int numPeople, Market market) {
 		super(numPeople);
+		this.market = market; 
 	}
 
 	@Override
@@ -29,7 +33,7 @@ public class defaultPopulationInitializer extends PopulationInitializer {
 		Person person = new Person(id); 
 		
 		ConsumerProfile consumerProfile = new ConsumerProfile(goodFactory); 
-		Role roleConsumer = new Consumer(consumerProfile, id); 
+		Role roleConsumer = new Consumer(consumerProfile, id, market); 
 		person.addRole(roleConsumer);
 		
 		ProducerProfile producerProfile = new ProducerProfile(goodFactory); 

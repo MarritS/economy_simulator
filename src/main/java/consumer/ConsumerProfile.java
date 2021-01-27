@@ -7,9 +7,14 @@ import goods.Good;
 import goods.GoodFactory;
 import population.RoleProfile;
 
+/***
+ * 
+ * @author Marrit Schellekens
+ * Contains consumption profile for one consumer. 
+ */
 public class ConsumerProfile implements RoleProfile {
 	//TODO: Change to map
-	List<ConsumerGoodProfile> consumptionProfile = new ArrayList<>(); 
+	protected List<ConsumerGoodProfile> consumptionProfile = new ArrayList<>(); 
 	
 	public ConsumerProfile(GoodFactory goodFactory) {
 		List<Good> goods = goodFactory.returnAllGoods(); 
@@ -26,6 +31,14 @@ public class ConsumerProfile implements RoleProfile {
 			goods.add(consumerGoodProfile.getGood());
 		}
 		return goods; 
+	}
+	
+	protected void setConsumptionForGood(Good good, int consumption) {
+		for (ConsumerGoodProfile consumerGoodProfile : consumptionProfile) {
+			if (consumerGoodProfile.getGood().equals(good)) {
+				consumerGoodProfile.setConsumption(consumption);
+			}
+		}
 	}
 	
 	protected int consumptionForGood(Good good) {

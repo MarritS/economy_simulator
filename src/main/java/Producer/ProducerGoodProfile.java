@@ -6,7 +6,7 @@ import goods.Good;
 
 public class ProducerGoodProfile {
 	private final Good good; 
-	private final int prodPerTU; 
+	private int prodPerTU; 
 	
 	ProducerGoodProfile(Good good, int max, int min) {
 		this.good = good; 
@@ -20,6 +20,11 @@ public class ProducerGoodProfile {
 	
 	protected Good getGood() {
 		return good; 
+	}
+	
+	protected void setProduction(int production) {
+		assert(production >= 0);
+		this.prodPerTU = production; 
 	}
 
 	public int getProduction() {

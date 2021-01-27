@@ -3,7 +3,10 @@ package goods;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoodsCollection {
+/**
+ * Keeps a list of goods, and some utility functions regarding this list. 
+ */
+public abstract class GoodsCollection {
 	List<Good> goods= new ArrayList<>();
 	
 	

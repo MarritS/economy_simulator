@@ -38,6 +38,10 @@ public class Market {
 		inventory.put(good, storage);
 	}
 	
+	public int getQuantityGood(Good good) {
+		return inventory.get(good);
+	}
+	
 	public void subtractFromGood(Good good, int numConsumed) throws NotEnoughInventoryException {
 		int storage = inventory.get(good);
 		if (storage < numConsumed) { 

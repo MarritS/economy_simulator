@@ -17,6 +17,10 @@ public class GoodFactory {
 		return goodsCollection.getAllGoods(); 
 	}
 	
+	public Good getGood(String name) {
+		return goodsCollection.getGood(name);
+	}
+	
 
 	public void addToGood(Good good, int numProduced) {
 		

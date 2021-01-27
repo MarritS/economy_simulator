@@ -9,8 +9,11 @@ import population.Role;
 
 public class Consumer extends Role {
 
-	public Consumer(ConsumerProfile profile, int id) {
+	Market market; 
+	
+	public Consumer(ConsumerProfile profile, int id, Market market) {
 		super(id); 
+		this.market = market; 
 		this.profile = profile;
 	}
 
@@ -30,7 +33,6 @@ public class Consumer extends Role {
 		String name = good.getName();
 		int numConsumed = ((ConsumerProfile) profile).consumptionForGood(good);
 		if (numConsumed > 0) {
-			Market market = Market.getInstance();
 			try {
 				market.subtractFromGood(good, numConsumed);
 				String message = String.format("Consumer %d has consumed %d of %s", id, numConsumed, name);

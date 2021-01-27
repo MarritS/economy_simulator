@@ -4,11 +4,16 @@ import java.util.Random;
 
 import goods.Good;
 
+/**
+ * Contains consumption profile for one good, for one consumer.
+ * @author Marrit Schellekens
+ *
+ */
 public class ConsumerGoodProfile {
 	private final Good good; 
-	private final int consPerTU; 
+	private int consPerTU; 
 	
-	ConsumerGoodProfile(Good good, int max, int min) {
+	protected ConsumerGoodProfile(Good good, int max, int min) {
 		this.good = good; 
         consPerTU =  getRandomConsumption(max, min);
 	}
@@ -26,6 +31,11 @@ public class ConsumerGoodProfile {
 	
 	protected Good getGood() {
 		return good; 
+	}
+	
+	public void setConsumption(int consumption) {
+		assert(consumption >= 0);
+		this.consPerTU = consumption; 
 	}
 
 	public int getConsumption() {

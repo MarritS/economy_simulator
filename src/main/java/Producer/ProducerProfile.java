@@ -36,4 +36,12 @@ public class ProducerProfile implements RoleProfile {
 		return 0; 
 	}
 	
+	protected void setProductionForGood(Good good, int production) {
+		for (ProducerGoodProfile producerGoodProfile : productionProfile) {
+			if (producerGoodProfile.getGood().equals(good)) {
+				producerGoodProfile.setProduction(production);
+			}
+		}
+	}
+	
 }

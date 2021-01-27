@@ -24,12 +24,13 @@ public class Main {
 	
 	private static void setup() {
 		goodFactory = new GoodFactory(new DefaultGoodsCollection());
-		population = createPopulation(); 
 		market = Market.initialize(goodFactory);
+		population = createPopulation(market); 
+		
 	}
 	
-	private static Population createPopulation() {
-		PopulationFactory populationFactory = new PopulationFactory(new defaultPopulationInitializer(numOfPeople), goodFactory); 
+	private static Population createPopulation(Market market) {
+		PopulationFactory populationFactory = new PopulationFactory(new defaultPopulationInitializer(numOfPeople, market), goodFactory); 
 		Population population = new Population(populationFactory); 
 		return population; 
 	}
