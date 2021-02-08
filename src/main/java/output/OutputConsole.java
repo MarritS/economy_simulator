@@ -1,4 +1,4 @@
-package economy_simulator;
+package output;
 
 public class OutputConsole extends Output {
 

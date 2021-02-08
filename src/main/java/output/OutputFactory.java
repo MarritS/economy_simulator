@@ -1,6 +1,6 @@
-package economy_simulator;
+package output;
 
-public class OutputProviderFactory {
+public class OutputFactory {
 	static Output output;
 
 	public static void setOutput(Output out) {

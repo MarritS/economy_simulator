@@ -3,14 +3,14 @@ package Producer;
 import java.util.List;
 
 import economy_simulator.Market;
-import economy_simulator.Output;
-import economy_simulator.OutputProviderFactory;
 import goods.Good;
+import output.Output;
+import output.OutputFactory;
 import population.Role;
 
 public class Producer extends Role {
 	
-	Output output = OutputProviderFactory.getOutput();
+	Output output = OutputFactory.getOutput();
 
 	public Producer(ProducerProfile profile, int id) {
 		super(id);

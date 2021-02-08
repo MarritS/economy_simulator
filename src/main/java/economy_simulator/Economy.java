@@ -1,8 +1,5 @@
 package economy_simulator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import goods.DefaultGoodsCollection;
 import goods.GoodFactory;
 import population.Population;

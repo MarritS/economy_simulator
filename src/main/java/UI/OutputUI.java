@@ -1,13 +1,13 @@
 package UI;
 
-import economy_simulator.Output;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import output.Output;
 
 public class OutputUI extends Output {
 	TextArea textfield; 
 
-	OutputUI(TextArea output) {
+	public OutputUI(TextArea output) {
 		assert(output!=null); 
 		this.textfield = output; 
 	}

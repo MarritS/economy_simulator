@@ -1,7 +1,6 @@
 package UI;
 
 import economy_simulator.Economy;
-import economy_simulator.OutputProviderFactory;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,9 +8,9 @@ import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+import output.OutputFactory;
 
 public class MainScreen extends Application {
 	static TextArea output = new TextArea();
@@ -19,7 +18,7 @@ public class MainScreen extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		OutputUI outputUI = new OutputUI(output); 
-		OutputProviderFactory.setOutput(outputUI);
+		OutputFactory.setOutput(outputUI);
 		
 		primaryStage.setTitle("JavaFX Welcome");
 		Button btn = new Button();
@@ -36,8 +35,8 @@ public class MainScreen extends Application {
 		root.setOrientation(Orientation.VERTICAL);
 		root.getChildren().add(btn);
 		root.getChildren().add(output); 
-		primaryStage.setScene(new Scene(root, 300, 250));
-
+		primaryStage.setScene(new Scene(root));
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 	
