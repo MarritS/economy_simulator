@@ -1,18 +1,23 @@
 package economy_simulator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import goods.DefaultGoodsCollection;
 import goods.GoodFactory;
 import population.Population;
 import population.PopulationFactory;
 import population.defaultPopulationInitializer;
 
-public class Main {
+public class Economy {
 	private final static int numOfPeople = 5; 
 	private final static int timeToSimulate = 10; 
 	
 	private static GoodFactory goodFactory; 
 	private static Population population; 
 	private static Market market; 
+	
+
 
 	public static void main(String[] args) {
 		setup();
@@ -20,6 +25,13 @@ public class Main {
 			population.performRoles();
 		}
 		
+	}
+	
+	public static void startSim() {
+		setup();
+		for(int i = 0; i<timeToSimulate; i++) {
+			population.performRoles();
+		}
 	}
 	
 	private static void setup() {

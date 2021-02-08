@@ -3,15 +3,20 @@ package Producer;
 import java.util.List;
 
 import economy_simulator.Market;
+import economy_simulator.Output;
+import economy_simulator.OutputProviderFactory;
 import goods.Good;
 import population.Role;
 
 public class Producer extends Role {
+	
+	Output output = OutputProviderFactory.getOutput();
 
 	public Producer(ProducerProfile profile, int id) {
 		super(id);
 		this.profile = profile; 
 	}
+	
 
 	@Override
 	public void performRole() {
@@ -32,8 +37,10 @@ public class Producer extends Role {
 			Market market = Market.getInstance();
 				market.addToGood(good, numProduced);
 				String message = String.format("Consumer %d has produced %d of %s", id, numProduced, name);
-				System.out.println(message);
+				output.print(message);
 		}
 	}
+	
+	
 
 }
