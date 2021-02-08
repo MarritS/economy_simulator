@@ -7,9 +7,12 @@ public class OutputProviderFactory {
 		assert (out != null);
 		output = out;
 	}
-	
+
 	public static Output getOutput() {
-		assert(output!=null); 
-		return output; 
+		if (output == null) {
+			return new OutputConsole();
+		} else {
+			return output;
+		}
 	}
 }
