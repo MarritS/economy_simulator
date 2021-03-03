@@ -11,12 +11,14 @@ public class Market {
 	static Market market;
 	GoodFactory goodFactory;
 	Map<Good, Integer> inventory = new HashMap<>();
+	Map<Good, Double> priceLevel = new HashMap<>();
 	
 	private Market(GoodFactory goodFactory) {
 		this.goodFactory = goodFactory; 
 		List<Good> goods = goodFactory.returnAllGoods();
 		for (Good good : goods) {
 			inventory.put(good, 10);
+			priceLevel.put(good, 5.0);
 		}
 	}
 	
@@ -40,6 +42,10 @@ public class Market {
 	
 	public int getQuantityGood(Good good) {
 		return inventory.get(good);
+	}
+	
+	public double requestPriceGood(Good good) {
+		return priceLevel.get(good);
 	}
 	
 	public void subtractFromGood(Good good, int numConsumed) throws NotEnoughInventoryException {

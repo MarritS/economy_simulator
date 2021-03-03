@@ -13,6 +13,7 @@ import goods.GoodFactory;
 public class defaultPopulationInitializer extends PopulationInitializer {
 	
 	Market market; 
+	public static final double INIT_MONEY_AMOUNT= 50; 
 	
 	public defaultPopulationInitializer(int numPeople, Market market) {
 		super(numPeople);
@@ -30,10 +31,10 @@ public class defaultPopulationInitializer extends PopulationInitializer {
 	}
 	
 	private Person createPerson(GoodFactory goodFactory, int id) {
-		Person person = new Person(id); 
+		Person person = new Person(id, INIT_MONEY_AMOUNT); 
 		
 		ConsumerProfile consumerProfile = new ConsumerProfile(goodFactory); 
-		Role roleConsumer = new Consumer(consumerProfile, id, market); 
+		Role roleConsumer = new Consumer(consumerProfile, id, market, person); 
 		person.addRole(roleConsumer);
 		
 		ProducerProfile producerProfile = new ProducerProfile(goodFactory); 
