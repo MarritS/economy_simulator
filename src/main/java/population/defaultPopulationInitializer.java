@@ -38,7 +38,7 @@ public class defaultPopulationInitializer extends PopulationInitializer {
 		person.addRole(roleConsumer);
 		
 		ProducerProfile producerProfile = new ProducerProfile(goodFactory); 
-		Role roleProducer = new Producer(producerProfile, id);
+		Role roleProducer = new Producer(producerProfile, id, person);
 		person.addRole(roleProducer);
 		
 		return person; 

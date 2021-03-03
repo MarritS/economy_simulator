@@ -40,18 +40,19 @@ public class Consumer extends Role {
 	private void consumeGood(Good good) {
 		String name = good.getName();
 		double price = market.requestPriceGood(good);
+		int numConsumed = ((ConsumerProfile) profile).consumptionForGood(good);
 		
-		if (person.moneyInWallet() < price) {
+		if (person.moneyInWallet() < price*numConsumed) {
 			String message = String.format("Consumer %d does not have enough money to buy the desired number of product %s", id, name);
 			output.print(message);
 			return; 
 		} 
 		
-		int numConsumed = ((ConsumerProfile) profile).consumptionForGood(good);
+
 		if (numConsumed > 0) {
 			try {
 				market.subtractFromGood(good, numConsumed);
-				person.moneyChanged(-1*price);
+				person.moneyChanged(-1*price*numConsumed);
 				String message = String.format("Consumer %d has consumed %d of %s", id, numConsumed, name);
 				output.print(message);
 			} catch (NotEnoughInventoryException e) {

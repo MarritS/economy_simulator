@@ -7,9 +7,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import consumer.Consumer;
-import consumer.ConsumerGoodProfile;
-import consumer.ConsumerProfile;
 import goods.DefaultGoodsCollection;
 import goods.Good;
 import goods.GoodFactory;
@@ -67,27 +64,5 @@ public class MarketTest {
 	}
 	
 
-	/**
-	 * This consumptionprofile assures a consumption of 5 for good A.
-	 * 
-	 * @author Marrit Schellekens
-	 *
-	 */
-	private class MockConsumptionProfile extends ConsumerProfile {
-
-		public MockConsumptionProfile(GoodFactory goodFactory) {
-			super(goodFactory);
-			resetConsumptionProfileToTestParams();
-			Good good = goodFactory.getGood("A");
-			this.setConsumptionForGood(good, 5);
-		}
-
-		public void resetConsumptionProfileToTestParams() {
-			for (ConsumerGoodProfile consumerGoodProfile : consumptionProfile) {
-				consumerGoodProfile.setConsumption(0);
-			}
-		}
-
-	}
 
 }

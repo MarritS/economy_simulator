@@ -47,7 +47,7 @@ public class ConsumerTest {
 	void testConsumeGoodTooLittleMoney() {
 		int quantAtFirst = market.getQuantityGood(good);
 		double price = market.requestPriceGood(good);
-		person.moneyChanged(price - 0.01);
+		person.moneyChanged(price*CONSUMPTION - 0.01);
 		double moneyAtFirst = person.moneyInWallet();
 		consumer.performRole();
 		int quantAfterConsumption = market.getQuantityGood(good);
@@ -61,7 +61,7 @@ public class ConsumerTest {
 	void testConsumeGoodWithSurplus(double surplus) {
 		int quantAtFirst = market.getQuantityGood(good);
 		double price = market.requestPriceGood(good);
-		person.moneyChanged(price + surplus);
+		person.moneyChanged(price*CONSUMPTION + surplus);
 		consumer.performRole();
 		int quantAfterConsumption = market.getQuantityGood(good);
 		assertEquals(quantAtFirst - quantAfterConsumption, CONSUMPTION);

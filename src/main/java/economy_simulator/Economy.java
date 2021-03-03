@@ -17,11 +17,7 @@ public class Economy {
 
 
 	public static void main(String[] args) {
-		setup();
-		for(int i = 0; i<timeToSimulate; i++) {
-			population.performRoles();
-		}
-		
+		startSim();
 	}
 	
 	public static void startSim() {
